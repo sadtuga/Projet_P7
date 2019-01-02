@@ -1,22 +1,22 @@
 //
-//  Zozor_UITests.swift
+//  ViewControllerUITestCase.swift
 //  CountOnMeUITests
 //
-//  Created by Ambroise COLLON on 30/08/2016.
-//  Copyright © 2016 Ambroise Collon. All rights reserved.
+//  Created by Marques Lucas on 02/01/2019.
+//  Copyright © 2019 Ambroise Collon. All rights reserved.
 //
 
 import XCTest
+@testable import CountOnMe
 
-class Zozor_UITests: XCTestCase {
+class ViewControllerUITestCase: XCTestCase {
 
     override func setUp() {
-        super.setUp()
-
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        super.setUp()
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
+
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
 
@@ -25,12 +25,6 @@ class Zozor_UITests: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
 }

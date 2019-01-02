@@ -12,7 +12,6 @@ class Calculate {
     
     private var stringNumbers: [String] = [String()]
     private var operators: [String] = ["+"]
-    private var index = 0
     
     func getStringNumber() -> [String] {
         return stringNumbers
@@ -59,6 +58,5 @@ class Calculate {
     func clear() {
         stringNumbers = [String()]
         operators = ["+"]
-        index = 0
     }
 }
