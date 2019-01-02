@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CalculateView" customModule="CountOnMe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -223,9 +223,12 @@
                             <constraint firstItem="CT0-fb-Raf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="s6z-8u-pwu"/>
                             <constraint firstItem="CT0-fb-Raf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="w34-Qy-MUb"/>
                         </constraints>
+                        <connections>
+                            <outlet property="textView" destination="CT0-fb-Raf" id="7QW-0R-0mS"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="CT0-fb-Raf" id="Xeg-bt-oOS"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="m8Y-ed-sn0"/>
                         <outletCollection property="numberButtons" destination="cKJ-lP-BeQ" collectionClass="NSMutableArray" id="95z-oa-0gF"/>
                         <outletCollection property="numberButtons" destination="6uw-jf-qlX" collectionClass="NSMutableArray" id="bHT-RM-Vdm"/>
                         <outletCollection property="numberButtons" destination="86l-DO-J8m" collectionClass="NSMutableArray" id="ygS-vo-SKY"/>
