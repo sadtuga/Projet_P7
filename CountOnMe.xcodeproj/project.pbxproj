@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A05E4FAC21DD475500378FFA /* ViewControllerUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E4FAB21DD475500378FFA /* ViewControllerUITestCase.swift */; };
+		A05E4FBC21DD5E5700378FFA /* ViewControllerUITestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05E4FBB21DD5E5700378FFA /* ViewControllerUITestCase.swift */; };
 		A07A49B421DCE890005B530D /* CalculateTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07A49B321DCE890005B530D /* CalculateTestCase.swift */; };
 		A099AF6521D98A130000D3F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A099AF6421D98A130000D3F7 /* ViewController.swift */; };
 		A0D0F96E21DA458D00471330 /* CalculateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0F96D21DA458D00471330 /* CalculateView.swift */; };
@@ -20,14 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C926DAEE1D7581BB00477020 /* PBXContainerItemProxy */ = {
+		A05E4FB621DD5E2000378FFA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C926DAD11D7581BB00477020 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = C926DAD81D7581BB00477020;
-			remoteInfo = "Zozor+";
+			remoteInfo = CountOnMe;
 		};
-		C926DAF91D7581BB00477020 /* PBXContainerItemProxy */ = {
+		C926DAEE1D7581BB00477020 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C926DAD11D7581BB00477020 /* Project object */;
 			proxyType = 1;
@@ -37,7 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A05E4FAB21DD475500378FFA /* ViewControllerUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUITestCase.swift; sourceTree = "<group>"; };
+		A05E4FB121DD5E2000378FFA /* CountOnMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A05E4FB521DD5E2000378FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A05E4FBB21DD5E5700378FFA /* ViewControllerUITestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUITestCase.swift; sourceTree = "<group>"; };
 		A07A49B321DCE890005B530D /* CalculateTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateTestCase.swift; sourceTree = "<group>"; };
 		A099AF6421D98A130000D3F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0D0F96D21DA458D00471330 /* CalculateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateView.swift; sourceTree = "<group>"; };
@@ -50,12 +52,17 @@
 		C926DAE81D7581BB00477020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C926DAED1D7581BB00477020 /* CountOnMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C926DAF31D7581BB00477020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C926DAF81D7581BB00477020 /* CountOnMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C926DAFE1D7581BB00477020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9DA15091DF08CF100B0974D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A05E4FAE21DD5E2000378FFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C926DAD61D7581BB00477020 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -70,16 +77,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C926DAF51D7581BB00477020 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A05E4FB221DD5E2000378FFA /* CountOnMeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A05E4FBB21DD5E5700378FFA /* ViewControllerUITestCase.swift */,
+				A05E4FB521DD5E2000378FFA /* Info.plist */,
+			);
+			path = CountOnMeUITests;
+			sourceTree = "<group>";
+		};
 		A099AF6021D97B520000D3F7 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +130,7 @@
 			children = (
 				C926DADB1D7581BB00477020 /* CountOnMe */,
 				C926DAF01D7581BB00477020 /* CountOnMeTests */,
-				C926DAFB1D7581BB00477020 /* CountOnMeUITests */,
+				A05E4FB221DD5E2000378FFA /* CountOnMeUITests */,
 				C926DADA1D7581BB00477020 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +140,7 @@
 			children = (
 				C926DAD91D7581BB00477020 /* CountOnMe.app */,
 				C926DAED1D7581BB00477020 /* CountOnMeTests.xctest */,
-				C926DAF81D7581BB00477020 /* CountOnMeUITests.xctest */,
+				A05E4FB121DD5E2000378FFA /* CountOnMeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,19 +168,27 @@
 			path = "Zozor+Tests";
 			sourceTree = "<group>";
 		};
-		C926DAFB1D7581BB00477020 /* CountOnMeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				A05E4FAB21DD475500378FFA /* ViewControllerUITestCase.swift */,
-				C926DAFE1D7581BB00477020 /* Info.plist */,
-			);
-			name = CountOnMeUITests;
-			path = "Zozor+UITests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A05E4FB021DD5E2000378FFA /* CountOnMeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A05E4FB821DD5E2000378FFA /* Build configuration list for PBXNativeTarget "CountOnMeUITests" */;
+			buildPhases = (
+				A05E4FAD21DD5E2000378FFA /* Sources */,
+				A05E4FAE21DD5E2000378FFA /* Frameworks */,
+				A05E4FAF21DD5E2000378FFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A05E4FB721DD5E2000378FFA /* PBXTargetDependency */,
+			);
+			name = CountOnMeUITests;
+			productName = CountOnMeUITests;
+			productReference = A05E4FB121DD5E2000378FFA /* CountOnMeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C926DAD81D7581BB00477020 /* CountOnMe */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C926DB011D7581BB00477020 /* Build configuration list for PBXNativeTarget "CountOnMe" */;
@@ -207,45 +224,41 @@
 			productReference = C926DAED1D7581BB00477020 /* CountOnMeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C926DAF71D7581BB00477020 /* CountOnMeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C926DB071D7581BB00477020 /* Build configuration list for PBXNativeTarget "CountOnMeUITests" */;
-			buildPhases = (
-				C926DAF41D7581BB00477020 /* Sources */,
-				C926DAF51D7581BB00477020 /* Frameworks */,
-				C926DAF61D7581BB00477020 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C926DAFA1D7581BB00477020 /* PBXTargetDependency */,
-			);
-			name = CountOnMeUITests;
-			productName = "Zozor+UITests";
-			productReference = C926DAF81D7581BB00477020 /* CountOnMeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C926DAD11D7581BB00477020 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				KnownAssetTags = (
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+				);
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Ambroise Collon";
 				TargetAttributes = {
+					A05E4FB021DD5E2000378FFA = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = N4VGXY9MV7;
+						LastSwiftMigration = 1010;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C926DAD81D7581BB00477020;
+					};
 					C926DAD81D7581BB00477020 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = N4VGXY9MV7;
 						LastSwiftMigration = 0810;
 					};
 					C926DAEC1D7581BB00477020 = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 1010;
-						TestTargetID = C926DAD81D7581BB00477020;
-					};
-					C926DAF71D7581BB00477020 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1010;
 						TestTargetID = C926DAD81D7581BB00477020;
@@ -267,12 +280,19 @@
 			targets = (
 				C926DAD81D7581BB00477020 /* CountOnMe */,
 				C926DAEC1D7581BB00477020 /* CountOnMeTests */,
-				C926DAF71D7581BB00477020 /* CountOnMeUITests */,
+				A05E4FB021DD5E2000378FFA /* CountOnMeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A05E4FAF21DD5E2000378FFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C926DAD71D7581BB00477020 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,16 +311,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C926DAF61D7581BB00477020 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A05E4FAD21DD5E2000378FFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A05E4FBC21DD5E5700378FFA /* ViewControllerUITestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C926DAD51D7581BB00477020 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,26 +341,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C926DAF41D7581BB00477020 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A05E4FAC21DD475500378FFA /* ViewControllerUITestCase.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A05E4FB721DD5E2000378FFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C926DAD81D7581BB00477020 /* CountOnMe */;
+			targetProxy = A05E4FB621DD5E2000378FFA /* PBXContainerItemProxy */;
+		};
 		C926DAEF1D7581BB00477020 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C926DAD81D7581BB00477020 /* CountOnMe */;
 			targetProxy = C926DAEE1D7581BB00477020 /* PBXContainerItemProxy */;
-		};
-		C926DAFA1D7581BB00477020 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C926DAD81D7581BB00477020 /* CountOnMe */;
-			targetProxy = C926DAF91D7581BB00477020 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -363,6 +376,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A05E4FB921DD5E2000378FFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4VGXY9MV7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CountOnMeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarquesLucas.CountOnMeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CountOnMe;
+			};
+			name = Debug;
+		};
+		A05E4FBA21DD5E2000378FFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N4VGXY9MV7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CountOnMeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MarquesLucas.CountOnMeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CountOnMe;
+			};
+			name = Release;
+		};
 		C926DAFF1D7581BB00477020 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -526,36 +592,18 @@
 			};
 			name = Release;
 		};
-		C926DB081D7581BB00477020 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = "Zozor+UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ambroisecollon.Zozor-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "Zozor+";
-			};
-			name = Debug;
-		};
-		C926DB091D7581BB00477020 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = "Zozor+UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ambroisecollon.Zozor-UITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = "Zozor+";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A05E4FB821DD5E2000378FFA /* Build configuration list for PBXNativeTarget "CountOnMeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A05E4FB921DD5E2000378FFA /* Debug */,
+				A05E4FBA21DD5E2000378FFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C926DAD41D7581BB00477020 /* Build configuration list for PBXProject "CountOnMe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -579,15 +627,6 @@
 			buildConfigurations = (
 				C926DB051D7581BB00477020 /* Debug */,
 				C926DB061D7581BB00477020 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C926DB071D7581BB00477020 /* Build configuration list for PBXNativeTarget "CountOnMeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C926DB081D7581BB00477020 /* Debug */,
-				C926DB091D7581BB00477020 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

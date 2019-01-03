@@ -46,9 +46,12 @@ class ViewController: UIViewController {
     // MARK: - Action
 
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        for (i, numberButton) in numberButtons.enumerated() {
-            if sender == numberButton {
-                updateNumber(i)
+        let value: Int? = Int(sender.tag)
+        for i in numberButtons {
+            if sender.tag == i.tag {
+                if  value != nil {
+                    updateNumber(value!)
+                }
             }
         }
     }
