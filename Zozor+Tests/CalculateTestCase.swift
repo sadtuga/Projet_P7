@@ -12,41 +12,43 @@ import XCTest
 class CalculateTestCase: XCTestCase {
     
     private let calculate = Calculate()
+    private var stringNumber: [String] = [String()]
+    private var operators: [String] = [String()]
     
     func testGivenEmptyStringNumber_WhenAddingNumber_ThenGetThisNumber() {
         calculate.addNewNumber(1)
-        let stringNumber = calculate.getStringNumber()
+        stringNumber = calculate.getStringNumber()
         XCTAssertEqual(stringNumber[0], "1")
     }
     
     func testGivenEmptyStringNumber_WhenAddingManyNumber_ThenGetThisNumbers() {
         calculate.addNewNumber(1)
         calculate.addNewNumber(2)
-        let stringNumber = calculate.getStringNumber()
+        stringNumber = calculate.getStringNumber()
         XCTAssertEqual(stringNumber[0], "12")
     }
     
     func testGivenEmptyOperators_WhenAddingPlusOperator_ThenOperatorPlusAdd() {
         calculate.addOperators("+")
-        let operators = calculate.getOperators()
+        operators = calculate.getOperators()
         XCTAssertEqual(operators[0], "+")
     }
     
     func testGivenEmptyOperators_WhenAddingMinusOperator_ThenOperatorMinusAdd() {
         calculate.addOperators("-")
-        let operators = calculate.getOperators()
+        operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "-")
     }
     
     func testGivenEmptyOperators_WhenAddingMultipliedOperator_ThenOperatorMultipliedAdd() {
         calculate.addOperators("x")
-        let operators = calculate.getOperators()
+        operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "x")
     }
     
     func testGivenEmptyOperators_WhenAddingSplitOperator_ThenOperatorSplitAdd() {
         calculate.addOperators("÷")
-        let operators = calculate.getOperators()
+        operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "÷")
     }
     
@@ -79,8 +81,8 @@ class CalculateTestCase: XCTestCase {
         calculate.addNewNumber(1)
         calculate.addNewNumber(2)
         calculate.clear()
-        let stringNumber = calculate.getStringNumber()
-        let operators = calculate.getOperators()
+        stringNumber = calculate.getStringNumber()
+        operators = calculate.getOperators()
         XCTAssertTrue(stringNumber[0] == "")
         XCTAssertTrue(operators[0] == "+")
     }

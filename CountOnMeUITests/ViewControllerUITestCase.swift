@@ -11,6 +11,7 @@ import XCTest
 class ViewControllerUITestCase: XCTestCase {
     
     private let app = XCUIApplication()
+    private var text: String?
 
     override func setUp() {
         super.setUp()
@@ -30,7 +31,7 @@ class ViewControllerUITestCase: XCTestCase {
             cpt += 1
         } while cpt < 10
     
-        let text = app.textViews["Screen"].value as? String
+        text = app.textViews["Screen"].value as? String
         
         XCTAssertEqual(text, "0123456789")
     }
@@ -49,7 +50,7 @@ class ViewControllerUITestCase: XCTestCase {
         app.buttons["2"].tap()
         app.buttons["="].tap()
         
-        let text = app.textViews["Screen"].value as? String
+        text = app.textViews["Screen"].value as? String
         
         XCTAssertEqual(text, "3+67-21x4÷2=98")
     }
@@ -96,7 +97,7 @@ class ViewControllerUITestCase: XCTestCase {
         app.buttons["1"].tap()
         app.buttons["C"].tap()
         
-        let text = app.textViews["Screen"].value as? String
+        text = app.textViews["Screen"].value as? String
         XCTAssertEqual(text, "")
     }
 }
