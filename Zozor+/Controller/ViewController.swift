@@ -12,9 +12,9 @@ class ViewController: UIViewController {
 
     // MARK: - Properties
     
-    var calculate = Calculate()
+    private var calculate = Calculate()
 
-    var isExpressionCorrect: Bool {
+    private var isExpressionCorrect: Bool {
         if let stringNumber = calculate.getLastStringNumber() {
             if stringNumber.isEmpty {
                 if calculate.getStringNumber().count == 1 {
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         return true
     }
 
-    var canAddOperator: Bool {
+    private var canAddOperator: Bool {
         if let stringNumber = calculate.getLastStringNumber() {
             if stringNumber.isEmpty {
                 alert(title: "Zéro!", message: "Expression incorrecte !")
@@ -40,9 +40,10 @@ class ViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet var mainView: CalculateView!
-    @IBOutlet var numberButtons: [UIButton]!
-
+    @IBOutlet private var mainView: CalculateView!
+    @IBOutlet private var numberButtons: [UIButton]!
+    @IBOutlet private var resetButton: UIButton!
+    
     // MARK: - Action
 
     @IBAction func tappedNumberButton(_ sender: UIButton) {
@@ -57,19 +58,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func plus() {
-        if canAddOperator {
-            calculate.addOperators("+")
-            calculate.addStringNumber("")
-            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
-        }
+       operators("+")
     }
 
     @IBAction func minus() {
-        if canAddOperator {
-            calculate.addOperators("-")
-            calculate.addStringNumber("")
-            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
-        }
+        operators("-")
+    }
+    
+    @IBAction func multiplied(_ sender: Any) {
+        operators("x")
+    }
+    
+    @IBAction func split(_ sender: Any) {
+        operators("÷")
     }
 
     @IBAction func equal() {
@@ -80,16 +81,29 @@ class ViewController: UIViewController {
         }
         calculate.clear()
     }
-
+    
+    @IBAction func resetTextView(_ sender: Any) {
+        mainView.clearTextView()
+        calculate.clear()
+    }
+    
     // MARK: - Methods
     
+    private func operators(_ operators: String) {
+        if canAddOperator {
+            calculate.addOperators(operators)
+            calculate.addStringNumber("")
+            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
+        }
+    }
+    
     private func alert(title: String, message: String) {
-        let alertVC = UIAlertController(title: "Zéro!", message: "Expression incorrecte !", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
 
-    func updateNumber(_ newNumber: Int) {
+    private func updateNumber(_ newNumber: Int) {
         calculate.addNewNumber(newNumber)
         mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
     }

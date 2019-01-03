@@ -33,6 +33,10 @@ class Calculate {
                     total += number
                 } else if operators[i] == "-" {
                     total -= number
+                } else if operators[i] == "x" {
+                    total *= number
+                } else if operators[i] == "÷" {
+                    total /= number
                 }
             }
         }

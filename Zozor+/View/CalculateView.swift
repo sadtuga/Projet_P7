@@ -29,4 +29,8 @@ class CalculateView: UIView {
     func updateresult(total: Int) {
         textView.text = textView.text + "=\(total)"
     }
+    
+    func clearTextView() {
+        textView.text = ""
+    }
 }

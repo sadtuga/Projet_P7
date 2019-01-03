@@ -10,7 +10,7 @@ import XCTest
 
 class ViewControllerUITestCase: XCTestCase {
     
-    let app = XCUIApplication()
+    private let app = XCUIApplication()
 
     override func setUp() {
         super.setUp()
@@ -43,11 +43,15 @@ class ViewControllerUITestCase: XCTestCase {
         app.buttons["-"].tap()
         app.buttons["2"].tap()
         app.buttons["1"].tap()
+        app.buttons["x"].tap()
+        app.buttons["4"].tap()
+        app.buttons["÷"].tap()
+        app.buttons["2"].tap()
         app.buttons["="].tap()
         
         let text = app.textViews["Screen"].value as? String
         
-        XCTAssertEqual(text, "3+67-21=49")
+        XCTAssertEqual(text, "3+67-21x4÷2=98")
     }
     
     func testGivenTheUserInterface_whenAnIncorrectSequenceIsEntered_ThenDisplayAlert() {
@@ -57,7 +61,7 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
-    func testGivenTheUserInterface_WhenThePlusOperatorPressed_ThenDisplayAlert2() {
+    func testGivenTheUserInterface_WhenThePlusOperatorPressed_ThenDisplayAlert() {
         app.buttons["+"].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
@@ -67,8 +71,32 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
-    func testGiven_WhenTheEqualOperatorPressed_Then4() {
+    func testGivenTheUserInterface_WhenTheSplitOperatorPressed_ThenDisplayAlert() {
+        app.buttons["÷"].tap()
+        XCTAssertTrue(app.alerts["Zéro!"].isHittable)
+    }
+    
+    func testGivenTheUserInterface_WhenTheMultipliedOperatorPressed_ThenDisplayAlert() {
+        app.buttons["x"].tap()
+        XCTAssertTrue(app.alerts["Zéro!"].isHittable)
+    }
+    
+    func testGivenTheUserInterface_WhenTheEqualOperatorPressed_ThenDisplayAlert() {
         app.buttons["="].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
+    }
+    
+    func testGivenGivenTheUserInterface_WhenTheResetButtonIsPressed_ThenTheTextViewIsReset() {
+        app.buttons["3"].tap()
+        app.buttons["+"].tap()
+        app.buttons["6"].tap()
+        app.buttons["7"].tap()
+        app.buttons["-"].tap()
+        app.buttons["2"].tap()
+        app.buttons["1"].tap()
+        app.buttons["C"].tap()
+        
+        let text = app.textViews["Screen"].value as? String
+        XCTAssertEqual(text, "")
     }
 }

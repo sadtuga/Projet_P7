@@ -11,7 +11,7 @@ import XCTest
 
 class CalculateTestCase: XCTestCase {
     
-    let calculate = Calculate()
+    private let calculate = Calculate()
     
     func testGivenEmptyStringNumber_WhenAddingNumber_ThenGetThisNumber() {
         calculate.addNewNumber(1)
@@ -38,26 +38,16 @@ class CalculateTestCase: XCTestCase {
         XCTAssertEqual(operators[1], "-")
     }
     
-    func testGivenTotalIsNull_WhenSubtractionOperationAdded_ThenTheOperationGivesAResult() {
-        calculate.addNewNumber(3)
-        calculate.addNewNumber(4)
-        calculate.addOperators("-")
-        calculate.addStringNumber("")
-        calculate.addNewNumber(1)
-        calculate.addNewNumber(2)
-        let total = calculate.calculateTotal()
-        XCTAssertEqual(total, 22)
+    func testGivenEmptyOperators_WhenAddingMultipliedOperator_ThenOperatorMultipliedAdd() {
+        calculate.addOperators("x")
+        let operators = calculate.getOperators()
+        XCTAssertEqual(operators[1], "x")
     }
     
-    func testGivenTotalIsNull_WhenAdditionOperationAdded_ThenTheOperationGivesAResult() {
-        calculate.addNewNumber(3)
-        calculate.addNewNumber(4)
-        calculate.addOperators("+")
-        calculate.addStringNumber("")
-        calculate.addNewNumber(1)
-        calculate.addNewNumber(2)
-        let total = calculate.calculateTotal()
-        XCTAssertEqual(total, 46)
+    func testGivenEmptyOperators_WhenAddingSplitOperator_ThenOperatorSplitAdd() {
+        calculate.addOperators("÷")
+        let operators = calculate.getOperators()
+        XCTAssertEqual(operators[1], "÷")
     }
     
     func testGivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
@@ -70,8 +60,15 @@ class CalculateTestCase: XCTestCase {
         calculate.addOperators("-")
         calculate.addStringNumber("")
         calculate.addNewNumber(3)
+        calculate.addOperators("x")
+        calculate.addStringNumber("")
+        calculate.addNewNumber(9)
+        calculate.addOperators("÷")
+        calculate.addStringNumber("")
+        calculate.addNewNumber(6)
+        
         let total = calculate.calculateTotal()
-        XCTAssertEqual(total, 43)
+        XCTAssertEqual(total, 64)
     }
     
     func testGivenTheOperationIsComplete_WhenTheMethodCleanIsCall_ThenAllParameterAreReset() {
