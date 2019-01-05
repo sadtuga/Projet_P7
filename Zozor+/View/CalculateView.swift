@@ -26,8 +26,28 @@ class CalculateView: UIView {
         textView.text = text
     }
     
-    func updateresult(total: Int) {
-        textView.text = textView.text + "=\(total)"
+    private func isDecimal(_ total: Double) -> Bool {
+        let x : String = String(total)
+        var check: Bool = false
+        for (i, e) in x.enumerated() {
+            if e == "." {
+                check = true
+            }
+            if e == "0" && i == x.count-1 && check == true {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func updateresult(total: Double) {
+        let check: Bool = isDecimal(total)
+        if check == true {
+            let integer: Int = Int(total)
+            textView.text = textView.text + "=\(integer)"
+        } else {
+            textView.text = textView.text + "=\(total)"
+        }
     }
     
     func clearTextView() {

@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func equal() {
-        var total: Int = 0
+        var total: Double = 0.0
         if isExpressionCorrect {
             total = calculate.calculateTotal()
             mainView.updateresult(total: total)
@@ -85,6 +85,13 @@ class ViewController: UIViewController {
     @IBAction func resetTextView(_ sender: Any) {
         mainView.clearTextView()
         calculate.clear()
+    }
+    
+    @IBAction func point(_ sender: Any) {
+        if !calculate.getIsDecimal() {
+            calculate.addPoint()
+            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
+        }
     }
     
     // MARK: - Methods

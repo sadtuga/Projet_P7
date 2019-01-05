@@ -12,6 +12,7 @@ class Calculate {
     
     private var stringNumbers: [String] = [String()]
     private var operators: [String] = ["+"]
+    private var isDecimal: Bool = false
     
     func getStringNumber() -> [String] {
         return stringNumbers
@@ -25,10 +26,14 @@ class Calculate {
         return operators
     }
     
-    func calculateTotal() -> Int {
-        var total = 0
+    func getIsDecimal() -> Bool {
+        return isDecimal
+    }
+    
+    func calculateTotal() -> Double {
+        var total = 0.0
         for (i, stringNumber) in stringNumbers.enumerated() {
-            if let number = Int(stringNumber) {
+            if let number = Double(stringNumber) {
                 if operators[i] == "+" {
                     total += number
                 } else if operators[i] == "-" {
@@ -51,8 +56,18 @@ class Calculate {
         }
     }
     
+    func addPoint() {
+        if let stringNumber = stringNumbers.last {
+            var stringNumberMutable = stringNumber
+            stringNumberMutable += "."
+            isDecimal = true
+            stringNumbers[stringNumbers.count-1] = stringNumberMutable
+        }
+    }
+    
     func addOperators(_ operators: String) {
         self.operators.append(operators)
+        isDecimal = false
     }
     
     func addStringNumber(_ number: String) {
@@ -62,5 +77,6 @@ class Calculate {
     func clear() {
         stringNumbers = [String()]
         operators = ["+"]
+        isDecimal = false
     }
 }

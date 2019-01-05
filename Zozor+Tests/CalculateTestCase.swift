@@ -15,13 +15,13 @@ class CalculateTestCase: XCTestCase {
     private var stringNumber: [String] = [String()]
     private var operators: [String] = [String()]
     
-    func testGivenEmptyStringNumber_WhenAddingNumber_ThenGetThisNumber() {
+    func testGivenEmptyStringNumber_WhenAddingNumber_ThenThisNumberIsDisplayed() {
         calculate.addNewNumber(1)
         stringNumber = calculate.getStringNumber()
         XCTAssertEqual(stringNumber[0], "1")
     }
     
-    func testGivenEmptyStringNumber_WhenAddingManyNumber_ThenGetThisNumbers() {
+    func testGivenEmptyStringNumber_WhenAddingManyNumber_ThenTheseNumbersAreDisplayed() {
         calculate.addNewNumber(1)
         calculate.addNewNumber(2)
         stringNumber = calculate.getStringNumber()
@@ -52,8 +52,17 @@ class CalculateTestCase: XCTestCase {
         XCTAssertEqual(operators[1], "÷")
     }
     
+    func testGivenEmptyStringNumber_WhenAddingNumberAndPoint_ThenThisDecimalNumberIsDisplayed() {
+        calculate.addNewNumber(1)
+        calculate.addPoint()
+        calculate.addNewNumber(2)
+        stringNumber = calculate.getStringNumber()
+        XCTAssertEqual(stringNumber[0], "1.2")
+    }
+    
     func testGivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
         calculate.addNewNumber(3)
+        calculate.addPoint()
         calculate.addNewNumber(4)
         calculate.addOperators("+")
         calculate.addStringNumber("")
@@ -70,7 +79,7 @@ class CalculateTestCase: XCTestCase {
         calculate.addNewNumber(6)
         
         let total = calculate.calculateTotal()
-        XCTAssertEqual(total, 64)
+        XCTAssertEqual(total, 18.6)
     }
     
     func testGivenTheOperationIsComplete_WhenTheMethodCleanIsCall_ThenAllParameterAreReset() {

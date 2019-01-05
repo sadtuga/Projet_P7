@@ -36,13 +36,14 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertEqual(text, "0123456789")
     }
     
-    func testGivenTheUserInterface_WhenTheOperationWithNumericButtonsAndOperators_ThenDisplayInTextView() {
+    func testGivenTheUserInterface_WhenAnOperationIsSeized_ThenDisplayInTextView() {
         app.buttons["3"].tap()
         app.buttons["+"].tap()
         app.buttons["6"].tap()
         app.buttons["7"].tap()
         app.buttons["-"].tap()
         app.buttons["2"].tap()
+        app.buttons["."].tap()
         app.buttons["1"].tap()
         app.buttons["x"].tap()
         app.buttons["4"].tap()
@@ -52,7 +53,7 @@ class ViewControllerUITestCase: XCTestCase {
         
         text = app.textViews["Screen"].value as? String
         
-        XCTAssertEqual(text, "3+67-21x4÷2=98")
+        XCTAssertEqual(text, "3+67-2.1x4÷2=135.8")
     }
     
     func testGivenTheUserInterface_whenAnIncorrectSequenceIsEntered_ThenDisplayAlert() {
@@ -91,6 +92,7 @@ class ViewControllerUITestCase: XCTestCase {
         app.buttons["3"].tap()
         app.buttons["+"].tap()
         app.buttons["6"].tap()
+        app.buttons["."].tap()
         app.buttons["7"].tap()
         app.buttons["-"].tap()
         app.buttons["2"].tap()
