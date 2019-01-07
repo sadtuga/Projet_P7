@@ -51,7 +51,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="multiplied:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q8y-OW-a8W"/>
+                                            <action selector="multiplied" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bo3-Fx-9yb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1md-mv-IxN">
@@ -73,7 +73,7 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="split:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPq-ef-DLf"/>
+                                            <action selector="split" destination="BYZ-38-t0r" eventType="touchUpInside" id="pz1-TX-ibX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9e-qZ-ZAT">
@@ -143,7 +143,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="resetTextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wm6-uv-vaE"/>
-                                                    <action selector="tappedNumberButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HOe-KY-k2g"/>
                                                 </connections>
                                             </button>
                                         </subviews>

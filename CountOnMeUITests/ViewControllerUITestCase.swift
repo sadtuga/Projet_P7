@@ -10,18 +10,21 @@ import XCTest
 
 class ViewControllerUITestCase: XCTestCase {
     
-    private let app = XCUIApplication()
-    private var text: String?
+    private let app = XCUIApplication() // Stock a proxy for an application that can be launched and terminated.
+    private var text: String?           // Store the string contained in the textView
 
     override func setUp() {
         super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         XCUIApplication().launch()
     }
-
+    
     override func tearDown() {
     }
 
+    // Test if the digit button displays returns the correct value
     func testGivenTheUserInterface_WhenTheNumericButtonsIsPressed_ThenDisplayInTextView() {
         var cpt: Int = 0
         var value: String = ""
@@ -36,6 +39,7 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertEqual(text, "0123456789")
     }
     
+    // Test if the operator works
     func testGivenTheUserInterface_WhenAnOperationIsSeized_ThenDisplayInTextView() {
         app.buttons["3"].tap()
         app.buttons["+"].tap()
@@ -56,6 +60,7 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertEqual(text, "3+67-2.1x4÷2=135.8")
     }
     
+    // Test if the Alerts works
     func testGivenTheUserInterface_whenAnIncorrectSequenceIsEntered_ThenDisplayAlert() {
         app.buttons["3"].tap()
         app.buttons["+"].tap()
@@ -63,31 +68,37 @@ class ViewControllerUITestCase: XCTestCase {
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the Alerts works
     func testGivenTheUserInterface_WhenThePlusOperatorPressed_ThenDisplayAlert() {
         app.buttons["+"].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the Alerts works
     func testGivenTheUserInterface_WhenTheMinusOperatorPressed_ThenDisplayAlert() {
         app.buttons["-"].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the Alerts works
     func testGivenTheUserInterface_WhenTheSplitOperatorPressed_ThenDisplayAlert() {
         app.buttons["÷"].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the Alerts worksv
     func testGivenTheUserInterface_WhenTheMultipliedOperatorPressed_ThenDisplayAlert() {
         app.buttons["x"].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the Alerts works
     func testGivenTheUserInterface_WhenTheEqualOperatorPressed_ThenDisplayAlert() {
         app.buttons["="].tap()
         XCTAssertTrue(app.alerts["Zéro!"].isHittable)
     }
     
+    // Test if the c button works
     func testGivenGivenTheUserInterface_WhenTheResetButtonIsPressed_ThenTheTextViewIsReset() {
         app.buttons["3"].tap()
         app.buttons["+"].tap()

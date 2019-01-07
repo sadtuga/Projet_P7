@@ -12,8 +12,9 @@ class ViewController: UIViewController {
 
     // MARK: - Properties
     
-    private var calculate = Calculate()
+    private var calculate = Calculate() // Stock the instance of the class Calculate
 
+    // Is true if the expression is correct
     private var isExpressionCorrect: Bool {
         if let stringNumber = calculate.getLastStringNumber() {
             if stringNumber.isEmpty {
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
         return true
     }
 
+    // Is true if it is possible to add an operator
     private var canAddOperator: Bool {
         if let stringNumber = calculate.getLastStringNumber() {
             if stringNumber.isEmpty {
@@ -40,12 +42,13 @@ class ViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet private var mainView: CalculateView!
-    @IBOutlet private var numberButtons: [UIButton]!
-    @IBOutlet private var resetButton: UIButton!
+    @IBOutlet private var mainView: CalculateView!   // Stock the main view of the application
+    @IBOutlet private var numberButtons: [UIButton]! // Stock the UIButton corresponding to the numeric button
+    @IBOutlet private var resetButton: UIButton!     // Stock the UIButton corresponding to the "c" button
     
     // MARK: - Action
 
+    // Send to the method updateNumber the value of the digit button pressed
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         let value: Int? = Int(sender.tag)
         for i in numberButtons {
@@ -57,22 +60,27 @@ class ViewController: UIViewController {
         }
     }
 
+    // Sending in parameter of the operators method "+"
     @IBAction func plus() {
        operators("+")
     }
 
+    // Sending in parameter of the operators method "-"
     @IBAction func minus() {
         operators("-")
     }
     
-    @IBAction func multiplied(_ sender: Any) {
+    // Sending in parameter of the operators method "x"
+    @IBAction func multiplied() {
         operators("x")
     }
     
-    @IBAction func split(_ sender: Any) {
+    // Sending in parameter of the operators method "÷"
+    @IBAction func split() {
         operators("÷")
     }
 
+    // Calculates and displays the total
     @IBAction func equal() {
         var total: Double = 0.0
         if isExpressionCorrect {
@@ -82,11 +90,13 @@ class ViewController: UIViewController {
         calculate.clear()
     }
     
+    // Resets the operation
     @IBAction func resetTextView(_ sender: Any) {
         mainView.clearTextView()
         calculate.clear()
     }
     
+    // Add and display a point
     @IBAction func point(_ sender: Any) {
         if !calculate.getIsDecimal() {
             calculate.addPoint()
@@ -96,6 +106,7 @@ class ViewController: UIViewController {
     
     // MARK: - Methods
     
+    // Add an operator and display it on the screen if this is possible
     private func operators(_ operators: String) {
         if canAddOperator {
             calculate.addOperators(operators)
@@ -104,12 +115,14 @@ class ViewController: UIViewController {
         }
     }
     
+    // Displays a custom alert based on the received parameter
     private func alert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
 
+    // Add a number and display on the screen
     private func updateNumber(_ newNumber: Int) {
         calculate.addNewNumber(newNumber)
         mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
