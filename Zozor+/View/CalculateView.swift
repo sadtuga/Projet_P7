@@ -11,14 +11,14 @@ import UIKit
 class CalculateView: UIView {
 
     @IBOutlet private var textView: UITextView! // Contains the textView that displays the operation
-    
+
     // Update the textView
     func updateDisplay(_ stringNumbers: [String], _ operators: [String]) {
         var text = ""
-        for (i, stringNumber) in stringNumbers.enumerated() {
+        for (index, stringNumber) in stringNumbers.enumerated() {
             // Add operator
-            if i > 0 {
-                text += operators[i]
+            if index > 0 {
+                text += operators[index]
             }
             // Add number
             text += stringNumber
@@ -26,33 +26,33 @@ class CalculateView: UIView {
 
         textView.text = text
     }
-    
+
     // Check if the result of the operation is not a float with a zero as the only decimal
     private func isDecimal(_ total: Double) -> Bool {
-        let totalString : String = String(total)
+        let totalString: String = String(total)
         var check: Bool = false
-        for (i, e) in totalString.enumerated() {
-            if e == "." {
+        for (index, element) in totalString.enumerated() {
+            if element == "." {
                 check = true
             }
-            if e == "0" && i == totalString.count-1 && check == true {
+            if element == "0" && index == totalString.count-1 && check == true {
                 return true
             }
         }
         return false
     }
-    
+
     // Add the result of the operation to the textView
     func updateresult(total: Double) {
         let check: Bool = isDecimal(total)
         if check == true {
             let integer: Int = Int(total)
-            textView.text = textView.text + "=\(integer)"
+            textView.text += "=\(integer)"
         } else {
-            textView.text = textView.text + "=\(total)"
+            textView.text += "=\(total)"
         }
     }
-    
+
     // Resets the textView
     func clearTextView() {
         textView.text = ""
