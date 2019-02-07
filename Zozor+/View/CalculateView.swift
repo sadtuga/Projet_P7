@@ -45,7 +45,10 @@ class CalculateView: UIView {
     // Add the result of the operation to the textView
     func updateresult(total: Double) {
         let check: Bool = isDecimal(total)
-        if check == true {
+        if String(total) == "inf" || String(total) == "nan" {
+            textView.text += "= ERREUR"
+            return
+        } else if check == true {
             let integer: Int = Int(total)
             textView.text += "=\(integer)"
         } else {

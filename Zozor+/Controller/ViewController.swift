@@ -77,7 +77,7 @@ class ViewController: UIViewController {
 
     // Sending in parameter of the operators method "÷"
     @IBAction func split() {
-        operators("÷")
+        operators("÷")       
     }
 
     // Calculates and displays the total
