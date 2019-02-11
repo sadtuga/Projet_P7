@@ -50,14 +50,7 @@ class ViewController: UIViewController {
 
     // Send to the method updateNumber the value of the digit button pressed
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        let value: Int? = Int(sender.tag)
-        for element in numberButtons {
-            if sender.tag == element.tag {
-                if  value != nil {
-                    updateNumber(value!)
-                }
-            }
-        }
+        updateNumber(sender.tag)
     }
 
     // Sending in parameter of the operators method "+"
