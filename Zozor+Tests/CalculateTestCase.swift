@@ -25,28 +25,33 @@ class CalculateTestCase: XCTestCase {
 
     // Test if adding the operator "+" in the operators array works
     func testGivenEmptyOperators_WhenAddingPlusOperator_ThenOperatorPlusAdd() {
-        calculate.addOperators("+")
+        print(calculate.getOperators())
+        calculate.addNewNumber(1)
+        calculate.operators("+")
         operators = calculate.getOperators()
-        XCTAssertEqual(operators[0], "+")
+        XCTAssertEqual(operators[1], "+")
     }
 
     // Test if adding the operator "-" in the operators array works
     func testGivenEmptyOperators_WhenAddingMinusOperator_ThenOperatorMinusAdd() {
-        calculate.addOperators("-")
+        calculate.addNewNumber(1)
+        calculate.operators("-")
         operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "-")
     }
     
     // Test if adding the operator "x" in the operators array works
     func testGivenEmptyOperators_WhenAddingMultipliedOperator_ThenOperatorMultipliedAdd() {
-        calculate.addOperators("x")
+        calculate.addNewNumber(1)
+        calculate.operators("x")
         operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "x")
     }
 
     // Test if adding the operator "÷" in the operators array works
     func testGivenEmptyOperators_WhenAddingSplitOperator_ThenOperatorSplitAdd() {
-        calculate.addOperators("÷")
+        calculate.addNewNumber(1)
+        calculate.operators("÷")
         operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "÷")
     }
@@ -65,18 +70,14 @@ class CalculateTestCase: XCTestCase {
         calculate.addNewNumber(3)
         calculate.addPoint()
         calculate.addNewNumber(4)
-        calculate.addOperators("+")
-        calculate.addStringNumber("")
+        calculate.operators("+")
         calculate.addNewNumber(1)
         calculate.addNewNumber(2)
-        calculate.addOperators("-")
-        calculate.addStringNumber("")
+        calculate.operators("-")
         calculate.addNewNumber(3)
-        calculate.addOperators("x")
-        calculate.addStringNumber("")
+        calculate.operators("x")
         calculate.addNewNumber(9)
-        calculate.addOperators("÷")
-        calculate.addStringNumber("")
+        calculate.operators("÷")
         calculate.addNewNumber(6)
 
         let total = calculate.calculateTotal()
@@ -87,8 +88,7 @@ class CalculateTestCase: XCTestCase {
     func testGivenTheOperationIsComplete_WhenTheMethodCleanIsCall_ThenAllParameterAreReset() {
         calculate.addNewNumber(3)
         calculate.addNewNumber(4)
-        calculate.addOperators("+")
-        calculate.addStringNumber("")
+        calculate.operators("+")
         calculate.addNewNumber(1)
         calculate.addNewNumber(2)
         calculate.clear()
@@ -97,4 +97,6 @@ class CalculateTestCase: XCTestCase {
         XCTAssertTrue(stringNumber[0] == "")
         XCTAssertTrue(operators[0] == "+")
     }
+    
+    
 }

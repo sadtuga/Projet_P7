@@ -14,37 +14,24 @@ class ViewController: UIViewController {
 
     private var calculate = Calculate() // Stock the instance of the class Calculate
 
-    // Is true if the expression is correct
-    private var isExpressionCorrect: Bool {
-        if let stringNumber = calculate.getLastStringNumber() {
-            if stringNumber.isEmpty {
-                if calculate.getStringNumber().count == 1 {
-                    alert(title: "Zéro!", message: "Démarrez un nouveau calcul !")
-                } else {
-                    alert(title: "Zéro!", message: "Entrez une expression correcte !")
-                }
-                return false
-            }
-        }
-        return true
-    }
-
-    // Is true if it is possible to add an operator
-    private var canAddOperator: Bool {
-        if let stringNumber = calculate.getLastStringNumber() {
-            if stringNumber.isEmpty {
-                alert(title: "Zéro!", message: "Expression incorrecte !")
-                return false
-            }
-        }
-        return true
-    }
-
     // MARK: - Outlets
 
     @IBOutlet private var mainView: CalculateView!   // Stock the main view of the application
     @IBOutlet private var numberButtons: [UIButton]! // Stock the UIButton corresponding to the numeric button
     @IBOutlet private var resetButton: UIButton!     // Stock the UIButton corresponding to the "c" button
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let firstNotif = Notification.Name(rawValue: "Démarrez un nouveau calcul !")
+        NotificationCenter.default.addObserver(self, selector: #selector(beginNewCalculateAlert), name: firstNotif, object: nil)
+        
+        let secondNotif = Notification.Name(rawValue: "Entrez une expression correcte !")
+        NotificationCenter.default.addObserver(self, selector: #selector(enterCorrectExpressionAlert), name: secondNotif, object: nil)
+        
+        let thirdNotif = Notification.Name(rawValue: "Expression incorrecte !")
+        NotificationCenter.default.addObserver(self, selector: #selector(incorrectExpressionAlert), name: thirdNotif, object: nil)
+    }
 
     // MARK: - Action
 
@@ -55,32 +42,34 @@ class ViewController: UIViewController {
 
     // Sending in parameter of the operators method "+"
     @IBAction func plus() {
-       operators("+")
+        calculate.operators("+")
+        updateScreen()
     }
 
     // Sending in parameter of the operators method "-"
     @IBAction func minus() {
-        operators("-")
+        calculate.operators("-")
+        updateScreen()
     }
 
     // Sending in parameter of the operators method "x"
     @IBAction func multiplied() {
-        operators("x")
+        calculate.operators("x")
+        updateScreen()
     }
 
     // Sending in parameter of the operators method "÷"
     @IBAction func split() {
-        operators("÷")       
+        calculate.operators("÷")
+        updateScreen()
     }
 
     // Calculates and displays the total
     @IBAction func equal() {
-        var total: Double = 0.0
-        if isExpressionCorrect {
-            total = calculate.calculateTotal()
+        if let total: Double = calculate.isCalculable() {
             mainView.updateresult(total: total)
+            calculate.clear()
         }
-        calculate.clear()
     }
 
     // Resets the operation
@@ -93,26 +82,39 @@ class ViewController: UIViewController {
     @IBAction func point(_ sender: Any) {
         if !calculate.getIsDecimal() {
             calculate.addPoint()
-            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
+            updateScreen()
         }
     }
 
     // MARK: - Methods
 
-    // Add an operator and display it on the screen if this is possible
-    private func operators(_ operators: String) {
-        if canAddOperator {
-            calculate.addOperators(operators)
-            calculate.addStringNumber("")
-            mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
-        }
+    // Update the app view
+    private func updateScreen() {
+        mainView.updateDisplay(calculate.getStringNumber(), calculate.getOperators())
     }
 
-    // Displays a custom alert based on the received parameter
-    private func alert(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(alertVC, animated: true, completion: nil)
+    // Create a "begin new calculated" alert
+    @objc private func beginNewCalculateAlert() {
+        let alert = UIAlertController(title: title, message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
+        displayAlert(alert)
+    }
+    
+    // Create a "enter correct expression" alert
+    @objc private func enterCorrectExpressionAlert() {
+        let alert = UIAlertController(title: title, message: "Entrez une expression correcte !", preferredStyle: .alert)
+        displayAlert(alert)
+    }
+    
+    // Create a "incorrect expression" alert
+    @objc private func incorrectExpressionAlert() {
+        let alert = UIAlertController(title: title, message: "Expression incorrecte !", preferredStyle: .alert)
+        displayAlert(alert)
+    }
+    
+    // Display Custom alert
+    private func displayAlert(_ alert: UIAlertController) {
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
     // Add a number and display on the screen
