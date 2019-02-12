@@ -26,7 +26,7 @@ class CalculateView: UIView {
 
         textView.text = text
     }
-
+    
     // Check if the result of the operation is not a float with a zero as the only decimal
     private func isDecimal(_ total: Double) -> Bool {
         let totalString: String = String(total)
@@ -44,12 +44,12 @@ class CalculateView: UIView {
 
     // Add the result of the operation to the textView
     func updateresult(total: Double) {
-        let check: Bool = isDecimal(total)
+        let check = isDecimal(total)
         if String(total) == "inf" || String(total) == "nan" {
             textView.text += "= ERREUR"
             return
         } else if check == true {
-            let integer: Int = Int(total)
+            let integer = String(total).replacingOccurrences(of: ".0", with: "")
             textView.text += "=\(integer)"
         } else {
             textView.text += "=\(total)"

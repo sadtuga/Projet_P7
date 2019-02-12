@@ -36,7 +36,7 @@ class CalculateTestCase: XCTestCase {
         operators = calculate.getOperators()
         XCTAssertEqual(operators[1], "-")
     }
-
+    
     // Test if adding the operator "x" in the operators array works
     func testGivenEmptyOperators_WhenAddingMultipliedOperator_ThenOperatorMultipliedAdd() {
         calculate.addOperators("x")
