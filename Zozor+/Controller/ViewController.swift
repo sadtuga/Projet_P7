@@ -95,19 +95,19 @@ class ViewController: UIViewController {
 
     // Create a "begin new calculated" alert
     @objc private func beginNewCalculateAlert() {
-        let alert = UIAlertController(title: title, message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
         displayAlert(alert)
     }
     
     // Create a "enter correct expression" alert
     @objc private func enterCorrectExpressionAlert() {
-        let alert = UIAlertController(title: title, message: "Entrez une expression correcte !", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
         displayAlert(alert)
     }
     
     // Create a "incorrect expression" alert
     @objc private func incorrectExpressionAlert() {
-        let alert = UIAlertController(title: title, message: "Expression incorrecte !", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Zéro!", message: "Expression incorrecte !", preferredStyle: .alert)
         displayAlert(alert)
     }
     

@@ -57,7 +57,7 @@ class ViewControllerUITestCase: XCTestCase {
 
         text = app.textViews["Screen"].value as? String
 
-        XCTAssertEqual(text, "3+67-2.1x4÷2=135.8")
+        XCTAssertEqual(text, "3+67-2.1x4÷2=65.8")
     }
 
     // Test if the Alerts works

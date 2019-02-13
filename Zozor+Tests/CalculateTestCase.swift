@@ -81,7 +81,7 @@ class CalculateTestCase: XCTestCase {
         calculate.addNewNumber(6)
 
         let total = calculate.calculateTotal()
-        XCTAssertEqual(total, 18.6)
+        XCTAssertEqual(total, 10.9)
     }
 
     // Test if the clear method works

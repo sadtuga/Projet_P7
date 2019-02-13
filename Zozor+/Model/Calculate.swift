@@ -57,21 +57,67 @@ class Calculate {
 
     // Return the result of the operation
     func calculateTotal() -> Double {
-        var total = 0.0
-        for (index, stringNumber) in stringNumbers.enumerated() {
-            if let number = Double(stringNumber) {
-                if operators[index] == "+" {
-                    total += number
-                } else if operators[index] == "-" {
-                    total -= number
-                } else if operators[index] == "x" {
-                    total *= number
-                } else if operators[index] == "÷" {
-                    total /= number
+        
+        if let total = diviseOrMultiply() {
+            if operators.count == 1 {
+                print(total)
+                return total
+            }
+        }
+            return addOrMinus()
+    }
+    
+    // Returns the result of addition and subtraction
+    private func addOrMinus() -> Double {
+        var total: Double = 0.0
+        for (cpt, stringNumber) in stringNumbers.enumerated() {
+            if let number: Double = Double(stringNumber) {
+                if operators[cpt] == "+" {
+                    total += Double(number)
+                } else if operators[cpt] == "-" {
+                    total -= Double(number)
                 }
             }
         }
         return total
+    }
+    
+    // Returns the result of multiplication and division
+    private func diviseOrMultiply() -> Double? {
+        var total: Double = 0.0
+        var tmpOperator = ""
+        while operators.contains("x") || operators.contains("÷") {
+            
+            tmpOperator = containsAnOperator()
+            
+            guard let operatorIndex = operators.index(of: tmpOperator) else {return nil}
+            guard let numberOne = Double(stringNumbers[operatorIndex-1]) else {return nil}
+            guard let numberTwoo = Double(stringNumbers[operatorIndex]) else {return nil}
+                
+            if tmpOperator == "x" {
+                total =  numberOne * numberTwoo
+            } else if tmpOperator == "÷" {
+                total =  numberOne / numberTwoo
+            }
+            modifyStringNumber(index: operatorIndex, total: total)
+        }
+        return total
+    }
+    
+    // Return the operator if the operators array contains
+    private func containsAnOperator() -> String {
+        if operators.contains("x") {
+            return "x"
+        } else {
+            return "÷"
+        }
+    }
+    
+    // Add the result to the array stringNumber and remove the box from the array corresponding to the index received
+    private func modifyStringNumber(index: Int, total: Double) {
+        stringNumbers.remove(at: index)
+        stringNumbers[index - 1] = "\(total)"
+        operators.remove(at: index)
     }
 
     // Add a number in the array stringNumbers
