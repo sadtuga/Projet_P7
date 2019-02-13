@@ -22,7 +22,7 @@ class CalculateTestCase: XCTestCase {
         stringNumber = calculate.getStringNumber()
         XCTAssertEqual(stringNumber[0], "12")
     }
-
+    
     // Test if adding the operator "+" in the operators array works
     func testGivenEmptyOperators_WhenAddingPlusOperator_ThenOperatorPlusAdd() {
         print(calculate.getOperators())
@@ -66,7 +66,7 @@ class CalculateTestCase: XCTestCase {
     }
 
     // Test if the calculateTotal method works
-    func testGivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+    func testNumberOne_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
         calculate.addNewNumber(3)
         calculate.addPoint()
         calculate.addNewNumber(4)
@@ -82,6 +82,76 @@ class CalculateTestCase: XCTestCase {
 
         let total = calculate.calculateTotal()
         XCTAssertEqual(total, 10.9)
+    }
+    
+    // Test if the calculateTotal method works
+    func testNumberTwoo_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        calculate.addNewNumber(100)
+        calculate.operators("÷")
+        calculate.addNewNumber(2)
+        calculate.operators("x")
+        calculate.addNewNumber(2)
+        
+        let total = calculate.calculateTotal()
+        XCTAssertEqual(total, 100)
+    }
+    
+    // Test if the calculateTotal method works
+    func testNumberThree_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        calculate.addNewNumber(100)
+        calculate.operators("x")
+        calculate.addNewNumber(2)
+        calculate.operators("÷")
+        calculate.addNewNumber(2)
+        
+        let total = calculate.calculateTotal()
+        XCTAssertEqual(total, 100)
+    }
+    
+    // Test if the calculateTotal method works
+    func testNumberFour_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        calculate.addNewNumber(3)
+        calculate.operators("+")
+        calculate.addNewNumber(100)
+        calculate.operators("÷")
+        calculate.addNewNumber(2)
+        calculate.operators("x")
+        calculate.addNewNumber(2)
+        
+        let total = calculate.calculateTotal()
+        XCTAssertEqual(total, 103)
+    }
+    
+    // Test if the calculateTotal method works
+    func testNumberFive_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        calculate.addNewNumber(100)
+        calculate.operators("÷")
+        calculate.addNewNumber(2)
+        calculate.operators("x")
+        calculate.addNewNumber(2)
+        calculate.operators("+")
+        calculate.addNewNumber(3)
+        
+        let total = calculate.calculateTotal()
+        XCTAssertEqual(total, 103)
+    }
+    
+    // Test if the calculateTotal method works
+    func testNumberSix_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        calculate.addNewNumber(3)
+        calculate.operators("+")
+        calculate.addNewNumber(100)
+        calculate.operators("÷")
+        calculate.addNewNumber(25)
+        calculate.operators("+")
+        calculate.addNewNumber(2)
+        calculate.operators("x")
+        calculate.addNewNumber(2)
+        calculate.operators("-")
+        calculate.addNewNumber(6)
+        
+        let total = calculate.calculateTotal()
+        XCTAssertEqual(total, 5)
     }
 
     // Test if the clear method works

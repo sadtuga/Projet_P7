@@ -18,7 +18,7 @@ class Calculate {
      var isExpressionCorrect: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
-                if stringNumber.count == 1 {
+                if operators.count == 1 {
                     notification(message: "Démarrez un nouveau calcul !")
                 } else {
                     notification(message: "Entrez une expression correcte !")
@@ -56,11 +56,14 @@ class Calculate {
     }
 
     // Return the result of the operation
-    func calculateTotal() -> Double {
-        
+    func calculateTotal() -> Double? {
+        if stringNumbers.count == 1 {
+            if let tmp = Double(stringNumbers[0]) {
+                return tmp
+            }
+        }
         if let total = diviseOrMultiply() {
             if operators.count == 1 {
-                print(total)
                 return total
             }
         }
@@ -88,8 +91,8 @@ class Calculate {
         var tmpOperator = ""
         while operators.contains("x") || operators.contains("÷") {
             
-            tmpOperator = containsAnOperator()
-            
+            tmpOperator = priorityOperator()
+
             guard let operatorIndex = operators.index(of: tmpOperator) else {return nil}
             guard let numberOne = Double(stringNumbers[operatorIndex-1]) else {return nil}
             guard let numberTwoo = Double(stringNumbers[operatorIndex]) else {return nil}
@@ -104,12 +107,37 @@ class Calculate {
         return total
     }
     
-    // Return the operator if the operators array contains
-    private func containsAnOperator() -> String {
+    // Returns the priority operator
+    private func priorityOperator() -> String {
+        if containedOperators() == 2 {
+            if let indexA = operators.firstIndex(of: "x") {
+                if let indexB = operators.firstIndex(of: "÷") {
+                    if indexA > indexB {
+                        return "÷"
+                    } else {
+                        return "x"
+                    }
+                }
+            }
+        }
+            return contentOperator()
+    }
+    
+    // Returns the operator contained in the operators table
+    private func contentOperator() -> String {
         if operators.contains("x") {
             return "x"
         } else {
             return "÷"
+        }
+    }
+    
+    // Return the operator if the operators array contains
+    private func containedOperators() -> Int {
+        if operators.contains("x") && operators.contains("÷") {
+            return 2
+        } else {
+            return 1
         }
     }
     
