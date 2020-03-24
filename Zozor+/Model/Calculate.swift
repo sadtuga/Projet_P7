@@ -93,7 +93,7 @@ class Calculate {
             
             tmpOperator = priorityOperator()
 
-            guard let operatorIndex = operators.index(of: tmpOperator) else {return nil}
+            guard let operatorIndex = operators.firstIndex(of: tmpOperator) else {return nil}
             guard let numberOne = Double(stringNumbers[operatorIndex-1]) else {return nil}
             guard let numberTwoo = Double(stringNumbers[operatorIndex]) else {return nil}
                 
